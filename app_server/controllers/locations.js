@@ -3,7 +3,7 @@ const apiOptions = {
   server : 'http://localhost:3000' 
   }; 
   if (process.env.NODE_ENV === 'production') { 
-  apiOptions.server = 'https://warm-spire-56148.herokuapp.com'; 
+  apiOptions.server = 'https://tripadvicekerry.herokuapp.com/'; 
   }
 
     
@@ -50,7 +50,7 @@ const _getLocationInfo = function(req, res, callback) {
     url : apiOptions.server + path,
     method : 'GET',
     json : {}
-    
+
   };
   request(
     requestOptions,
