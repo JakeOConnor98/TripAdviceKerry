@@ -1,0 +1,82 @@
+@import url("//fonts.googleapis.com/css?family=Lobster|Cabin:400,700");
+
+body {
+  font-family: "Cabin", Arial, sans-serif;
+  color: #ffffff;
+  background-color: #ffad33;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lobster', cursive;
+}
+
+h1 {
+  margin-top: 1em;
+}
+
+.navbar {
+  background-color: #660033;
+  border-color: #000000;
+  padding-right: 15px;
+}
+
+.navbar-brand {
+  font-family: 'Lobster', cursive;
+}
+
+.banner {
+  margin-top: 4em;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 1.5em;
+  padding-bottom: 0.5em;
+}
+
+h1 small {
+  color: #3c3c3c;
+}
+
+.card {
+  background-color: #660033;
+}
+
+.card-primary {
+  border-color: #660033;
+  margin-bottom: 1rem;
+}
+
+.review-header {
+  background-color: #3c3c3c;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.review {
+  margin-right: -20px;
+  margin-left: -20px;
+  margin-bottom: 1em;
+  
+}
+
+.badge-default, .btn-primary {
+  background-color: #ad1d28;
+  border-color: #911821;
+}
+
+h4 a, h4 a:hover {
+  color: #fff;
+}
+
+h4 small {
+  font-size: 60%;
+  line-height: 200%;
+  color: #aaa;
+}
+
+.address {
+  margin-bottom: 0.5rem;
+}
+
+legend {
+  font-family: 'Lobster', cursive;
+}
