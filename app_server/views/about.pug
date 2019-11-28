@@ -1,9 +1,9 @@
 extends layout
 
 block content
-  .main.container
-  small &#8198;
-    .row
-    small &#8198;
-      .col-md-6.col-md-offset-3
-        h1.display-4.m-b-2 About
+  app-about
+
+block scripts
+      script(src='/build/runtime-es5.edb2fcf2778e7bf1d426.js')
+      script(src='/build/polyfills-es5.6696c533341b95a3d617.js')
+      script(src='/build/main-es5.4a158175e005dc442ccc.js')
