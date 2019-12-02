@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
-let dbURI = 'mongodb+srv://JakeOC_ITTralee:jwnjdbta@tripadvicekerry-d98eu.azure.mongodb.net/TripAdviceKerry?retryWrites=true&w=majority;'
-if (process.env.NODE_ENV === 'production') {
-  dbURI = process.env.MONGODB_URI;
-}
+let dbURI = 'mongodb+srv://JakeOC_ITTralee:jwnjdbta@tripadvicekerry-d98eu.azure.mongodb.net/TripAdviceKerry?retryWrites=true&w=majority'
+
 mongoose.connect(dbURI, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
