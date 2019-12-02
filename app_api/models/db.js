@@ -3,7 +3,12 @@ let dbURI = 'mongodb+srv://JakeOC_ITTralee:jwnjdbta@tripadvicekerry-d98eu.azure.
 if (process.env.NODE_ENV === 'production') {
   dbURI = process.env.MONGODB_URI;
 }
-mongoose.connect(dbURI);
+mongoose.connect(dbURI, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+});
 
 mongoose.connection.on('connected', () => {
   console.log(`Mongoose connected to ${dbURI}`);
