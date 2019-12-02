@@ -134,7 +134,7 @@ const _getLocationInfo = function(req, res, callback) {
   };
 
   const doAddReview = function(req, res) {
-    //const locationid = req.params.locationid;
+    const locationid = req.params.locationid;
     const path = `/api/locations/${locationid}/reviews`;
     const postdata = {
       author: req.body.name,
@@ -181,14 +181,7 @@ const _getLocationInfo = function(req, res, callback) {
       }); 
       };
 
-      const register = function(req, res){
-         res.render('register', {
-         title: 'Register'
-       })
-      };
-
       const doAddUser = function(req, res) {
-        //const locationid = req.params.locationid;
         const path = `/api/register`;
         const postdata = {
           username: req.body.username,
@@ -220,6 +213,37 @@ const _getLocationInfo = function(req, res, callback) {
         }
       };
 
+      const login = function (req, res) {
+        const path = `/api/login`;
+        const postdata = {
+          email:  req.body.email,
+          password: req.body.password,
+        };
+        console.log(postdata)
+        const requestOptions = {
+          url : apiOptions.server + path,
+          method : 'POST',
+          json : postdata
+        };
+        if (!postdata.email || !postdata.password) {
+          res.redirect(`/login`);
+        } else {
+          request(
+            requestOptions,
+            (err, response, body) => {
+              if (response.statusCode === 201) {
+                res.redirect(`/login`);
+              } else if (response.statusCode === 400 && body.name && body.name === 'ValidationError' ) {
+                res.redirect(`/register`);
+              } else {
+                _showError(req, res, response.statusCode);
+              }
+            }
+          );
+        }
+
+      }
+
 
     
 
@@ -229,6 +253,6 @@ module.exports = {
   locationInfo,
   addReview,
   doAddReview,
-  doAddUser
-  
+  doAddUser,
+  login
 };

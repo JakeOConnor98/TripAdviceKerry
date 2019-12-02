@@ -15,8 +15,16 @@ router
 
 
 /* Other pages */
-router.get('/login', ctrlLogin.login);
-router.get('/register', ctrRegister.register);
+router
+  .route('/login')
+  .get(ctrlLogin.login)
+  .post(ctrlLocations.login);
+
+router
+  .route('/register')
+  .get(ctrRegister.register)
+  .post(ctrlLocations.doAddUser);
+
 router.get('/about', ctrAbout.about);
 
 module.exports = router;
