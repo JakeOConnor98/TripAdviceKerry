@@ -196,15 +196,22 @@ const _getLocationInfo = function(req, res, callback) {
           json : postdata
         };
         if (!postdata.username || !postdata.email || !postdata.password || !postdata.con_password) {
-          res.redirect(`/register`);
+          res.render('register', {
+            title: 'Register',
+            error: 'validation'
+          });
         } else {
           request(
             requestOptions,
             (err, response, body) => {
               if (response.statusCode === 201) {
-                res.redirect(`/login`);
+                res.redirect(`/login/`);
               } else if (response.statusCode === 400 && body.name && body.name === 'ValidationError' ) {
-                res.redirect(`/register`);
+                res.render('register', {
+                  title: 'Register',
+                  error: 'validation'
+                });
+                
               } else {
                 _showError(req, res, response.statusCode);
               }

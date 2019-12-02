@@ -14,12 +14,13 @@ router
   .post(ctrlLocations.doAddReview);
 
 
-/* Other pages */
+/* Login page */
 router
   .route('/login')
   .get(ctrlLogin.login)
   .post(ctrlLocations.login);
 
+  /* Register page */
 router
   .route('/register')
   .get(ctrRegister.register)

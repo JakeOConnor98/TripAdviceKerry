@@ -29,7 +29,8 @@ router
 // users
 router
   .route('/login')
-  //.get(ctrl)
+  //.get(ctrlLocations.login);
+  
 
 module.exports = router;
 

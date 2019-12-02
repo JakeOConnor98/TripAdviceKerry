@@ -9,6 +9,8 @@ block content
 
         // register form
         form(method='POST' action='/register')
+          - if(error == 'validation')
+            .alert.alert-danger(role='alert') Please fill in missing fields.
           div.form-group
             label(for='name') Name:
             input#name.form-control(type='text', placeholder='first and last' name='name')
