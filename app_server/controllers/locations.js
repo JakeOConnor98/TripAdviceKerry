@@ -187,7 +187,7 @@ const _getLocationInfo = function(req, res, callback) {
           username: req.body.username,
           email:  req.body.email,
           password: req.body.password,
-          con_password: req.body.con_password
+        
         };
         console.log(postdata)
         const requestOptions = {
@@ -195,8 +195,8 @@ const _getLocationInfo = function(req, res, callback) {
           method : 'POST',
           json : postdata
         };
-        if (!postdata.username || !postdata.email || !postdata.password || !postdata.con_password) {
-          res.render('register', {
+        if (!postdata.username || !postdata.email || !postdata.password) {
+          res.render('register-page', {
             title: 'Register',
             error: 'validation'
           });
@@ -204,10 +204,10 @@ const _getLocationInfo = function(req, res, callback) {
           request(
             requestOptions,
             (err, response, body) => {
-              if (response.statusCode === 201) {
-                res.redirect(`/login/`);
+              if (response.statusCode === 20) {
+                res.redirect(`/login-page/`);
               } else if (response.statusCode === 400 && body.name && body.name === 'ValidationError' ) {
-                res.render('register', {
+                res.render('register-page', {
                   title: 'Register',
                   error: 'validation'
                 });
@@ -233,15 +233,19 @@ const _getLocationInfo = function(req, res, callback) {
           json : postdata
         };
         if (!postdata.email || !postdata.password) {
-          res.redirect(`/login`);
+          res.render('login', {
+            title: 'Login',
+            error: 'validation'
+          });
+          //res.redirect(`/login`);
         } else {
           request(
             requestOptions,
             (err, response, body) => {
-              if (response.statusCode === 201) {
-                res.redirect(`/login`);
+              if (response.statusCode === 200) {
+                res.redirect(`/login-page`);
               } else if (response.statusCode === 400 && body.name && body.name === 'ValidationError' ) {
-                res.redirect(`/register`);
+                res.redirect(`/register-page`);
               } else {
                 _showError(req, res, response.statusCode);
               }

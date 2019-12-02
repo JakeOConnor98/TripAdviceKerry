@@ -8,6 +8,8 @@ block content
       .col-md-6.col-md-offset-3
         h1.display-4.m-b-2 Log In!
         form(method='POST' action='/login')
+          - if(error == 'validation')
+            .alert.alert-danger(role='alert') Please fill in missing fields.
           div.form-group
             label(for='email') Email
             input.form-control(type='text' id='email' placeholder='email' name='email')
