@@ -15,12 +15,11 @@ const homelist = function(req, res){
     method : 'GET', 
     json : {}, 
     qs : { 
-      lng :  -9.5010, 
-      lat :  52.0173, 
+      lat :  -9.5010, 
+      lng :  52.0173, 
       maxDistance : 999999
     }
   };
-  console.log("before request");
   request(
     requestOptions,
     (err, response, body) => {
@@ -58,8 +57,8 @@ const _getLocationInfo = function(req, res, callback) {
       let data = body;
       if (response.statusCode === 200) {
         data.coords = {
-          lng : body.coords[0],
-          lat : body.coords[1]
+          lat : body.coords[0],
+          lng : body.coords[1]
         };                                
         callback(req, res, data);
       } else {
