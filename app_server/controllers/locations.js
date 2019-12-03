@@ -9,7 +9,7 @@ const apiOptions = {
     
   /* GET 'home' page */
 const homelist = function(req, res){
-  const path = '/api/locations'; 
+  const path = `${process.env.SLASH}api/locations`; 
   const requestOptions = { 
     url : apiOptions.server + path, 
     method : 'GET', 
@@ -43,7 +43,7 @@ const homelist = function(req, res){
 
 /* GET 'Location info' page */
 const _getLocationInfo = function(req, res, callback) {
-  const path = `/api/locations/${req.params.locationid}`;
+  const path = `${process.env.SLASH}api/locations/${req.params.locationid}`;
   console.log(path);
   const requestOptions = {
     url : apiOptions.server + path,
@@ -134,7 +134,7 @@ const _getLocationInfo = function(req, res, callback) {
 
   const doAddReview = function(req, res) {
     const locationid = req.params.locationid;
-    const path = `/api/locations/${locationid}/reviews`;
+    const path = `${process.env.SLASH}api/locations/${locationid}/reviews`;
     const postdata = {
       author: req.body.name,
       rating: parseInt(req.body.rating, 10),
@@ -181,7 +181,7 @@ const _getLocationInfo = function(req, res, callback) {
       };
 
       const doAddUser = function(req, res) {
-        const path = `/api/register`;
+        const path = `${process.env.SLASH}api/register`;
         const postdata = {
           username: req.body.username,
           email:  req.body.email,
@@ -220,7 +220,7 @@ const _getLocationInfo = function(req, res, callback) {
       };
 
       const login = function (req, res) {
-        const path = `/api/login`;
+        const path = `${process.env.SLASH}api/login`;
         const postdata = {
           email:  req.body.email,
           password: req.body.password,
